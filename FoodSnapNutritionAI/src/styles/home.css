@@ -1,0 +1,161 @@
+.home-container {
+  width: 100%;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 75vh;
+  gap: 48px;
+  padding: 60px 0;
+  position: relative;
+}
+
+/* Animated multi-color gradient background */
+.animated-gradient-bg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+  flex: 1.1;
+  max-width: 600px;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  color: #6B7280;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  flex: 0.9;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08));
+  position: relative;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  overflow: visible;
+}
+
+/* Floating Mock blocks */
+.floating-food-card {
+  position: absolute;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 5;
+}
+
+.mockup-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.mockup-content h3 {
+  font-size: 1.35rem;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+.mockup-content p {
+  color: #6B7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* AI Glow Ring FX */
+.ai-glow-ring {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px dashed var(--primary-green);
+  animation: rotateRing 15s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.features-section {
+  padding: 80px 0 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-content p {
+    margin: 0 auto 32px;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 380px;
+    margin-top: 24px;
+  }
+  
+  .floating-food-card {
+    display: none;
+  }
+}

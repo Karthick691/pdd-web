@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Environments
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+ai-service/.env
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Firebase cache
+.firebase/
+
+# IDE settings and local binaries
+.idea/
+*.apk
+*build_old/
+.gradle/
+
+# Decoupled Android project repository
+android/

@@ -1,0 +1,59 @@
+.dashboard-header {
+  margin-bottom: 32px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.chart-section, .ai-tips-section {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.tips-list li {
+  padding: 16px 20px;
+  background: var(--background-white);
+  border-radius: 14px;
+  border-left: 4px solid var(--secondary-blue);
+  font-size: 0.95rem;
+  color: var(--dark-text);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tips-list li:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Legacy visual styles removed since Recharts dynamically manages its canvas */
+
+@media (max-width: 1024px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-section, .ai-tips-section {
+    padding: 24px;
+  }
+}

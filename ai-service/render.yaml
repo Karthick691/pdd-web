@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: foodsnap-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false  # Set manually in Render dashboard for security
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: USE_OLLAMA
+        value: "false"
+      - key: PORT
+        value: "8002"
+      - key: FIREBASE_PROJECT_ID
+        value: food-snap-87cfb
+      - key: USDA_API_KEY
+        sync: false  # Set manually in Render dashboard for security
+      - key: ENVIRONMENT
+        value: production
+    healthCheckPath: /health
