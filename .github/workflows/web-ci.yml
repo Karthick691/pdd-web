@@ -1,4 +1,4 @@
-name: Web Application and AI Service CI
+name: Web and AI Service CI
 
 on:
   push:
