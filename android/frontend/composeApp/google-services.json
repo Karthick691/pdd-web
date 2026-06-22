@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47398940550",
+    "project_id": "food-snap-87cfb",
+    "storage_bucket": "food-snap-87cfb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47398940550:android:78109ed31ce93dfedd8607",
+        "android_client_info": {
+          "package_name": "com.foodsnap.nutritionai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcFXuoHnpDKRBrDrNglqRiJ3nSQX5eDVc"
+        }
+      ],
+      "services": {
+        "appdetect_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "3"
+}

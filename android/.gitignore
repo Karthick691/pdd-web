@@ -1,0 +1,23 @@
+# Exclude all build directories recursively
+**/build/
+build/
+.gradle/
+**/.gradle/
+
+# Kotlin Multiplatform and IDE folders
+**/.kotlin/
+.kotlin/
+.idea/
+**/.idea/
+*.iml
+**/*.iml
+
+# Android specific exclusions
+*.apk
+*.aar
+local.properties
+**/local.properties
+
+# OS files
+.DS_Store
+Thumbs.db

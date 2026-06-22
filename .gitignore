@@ -34,5 +34,5 @@ Thumbs.db
 *build_old/
 .gradle/
 
-# Decoupled Android project repository
-android/
+# Decoupled Android project repository (now merged)
+# android/
