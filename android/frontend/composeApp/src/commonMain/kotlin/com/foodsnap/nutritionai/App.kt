@@ -121,18 +121,19 @@ fun App() {
                     resetTo(Screen.Onboarding(1))
                 }
                 
+                val todayStr = getTodayDateString()
                 val foodLogs = foodLogRepo.getFoodLogs(uid)
                 loggedFoods.clear()
-                loggedFoods.addAll(foodLogs)
+                loggedFoods.addAll(foodLogs.filter { it.timestamp.startsWith(todayStr) })
                 
                 val waterLogs = waterRepo.getWaterLogs(uid)
-                val waterSum = waterLogs.sumOf { it.amount }
+                val waterSum = waterLogs.filter { it.timestamp.startsWith(todayStr) }.sumOf { it.amount }
                 waterIntake = waterSum
 
                 val exRepo = getExerciseRepository()
                 val exLogs = exRepo.getExerciseLogs(uid)
                 exerciseLogs.clear()
-                exerciseLogs.addAll(exLogs)
+                exerciseLogs.addAll(exLogs.filter { it.timestamp.startsWith(todayStr) })
             }
         } else {
             resetTo(Screen.Splash)
@@ -375,7 +376,7 @@ fun App() {
                                     foodLogRepo.deleteFoodLog(uid, entryToDelete.id)
                                     val foodLogs = foodLogRepo.getFoodLogs(uid)
                                     loggedFoods.clear()
-                                    loggedFoods.addAll(foodLogs)
+                                    loggedFoods.addAll(foodLogs.filter { it.timestamp.startsWith(getTodayDateString()) })
                                 }
                             }
                             popBack()
@@ -392,7 +393,7 @@ fun App() {
                                     foodLogRepo.addFoodLog(uid, duplicatedEntry)
                                     val foodLogs = foodLogRepo.getFoodLogs(uid)
                                     loggedFoods.clear()
-                                    loggedFoods.addAll(foodLogs)
+                                    loggedFoods.addAll(foodLogs.filter { it.timestamp.startsWith(getTodayDateString()) })
                                 }
                             } else {
                                 loggedFoods.add(duplicatedEntry)
@@ -420,7 +421,7 @@ fun App() {
                                     foodLogRepo.addFoodLog(uid, newEntry)
                                     val foodLogs = foodLogRepo.getFoodLogs(uid)
                                     loggedFoods.clear()
-                                    loggedFoods.addAll(foodLogs)
+                                    loggedFoods.addAll(foodLogs.filter { it.timestamp.startsWith(getTodayDateString()) })
                                 }
                             } else {
                                 loggedFoods.add(newEntry)
@@ -501,7 +502,7 @@ fun App() {
                                     exRepo.addExerciseLog(uid, newLog)
                                     val logs = exRepo.getExerciseLogs(uid)
                                     exerciseLogs.clear()
-                                    exerciseLogs.addAll(logs)
+                                    exerciseLogs.addAll(logs.filter { it.timestamp.startsWith(getTodayDateString()) })
                                 }
                             } else {
                                 exerciseLogs.add(newLog)

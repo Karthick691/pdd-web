@@ -15,15 +15,15 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBcFXuoHnpDKRBrDrNglqRiJ3nSQX5eDVc"
+          "current_key": "AIzaSyAJSzFbHG3PFBJ7MbgtzGoXZ-CrzD8VacQ"
         }
       ],
       "services": {
-        "appdetect_service": {
-          "status": 1
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }
   ],
-  "configuration_version": "3"
+  "configuration_version": "1"
 }

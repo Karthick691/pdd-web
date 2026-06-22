@@ -182,12 +182,16 @@ class FirebaseFoodLogRepository : FoodLogRepository {
 
     override suspend fun clearFoodLogs(userId: String) {
         try {
+            val todayStr = getTodayDateString()
             val snapshot = db.collection("foodLogs")
                 .whereEqualTo("userId", userId)
                 .get()
                 .awaitTask()
             for (doc in snapshot.documents) {
-                db.collection("foodLogs").document(doc.id).delete().awaitTask()
+                val timestamp = doc.getString("timestamp") ?: ""
+                if (timestamp.startsWith(todayStr)) {
+                    db.collection("foodLogs").document(doc.id).delete().awaitTask()
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -254,12 +258,16 @@ class FirebaseExerciseRepository : ExerciseRepository {
 
     override suspend fun clearExerciseLogs(userId: String) {
         try {
+            val todayStr = getTodayDateString()
             val snapshot = db.collection("exerciseLogs")
                 .whereEqualTo("userId", userId)
                 .get()
                 .awaitTask()
             for (doc in snapshot.documents) {
-                db.collection("exerciseLogs").document(doc.id).delete().awaitTask()
+                val timestamp = doc.getString("timestamp") ?: ""
+                if (timestamp.startsWith(todayStr)) {
+                    db.collection("exerciseLogs").document(doc.id).delete().awaitTask()
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -308,12 +316,16 @@ class FirebaseWaterRepository : WaterRepository {
 
     override suspend fun clearWaterLogs(userId: String) {
         try {
+            val todayStr = getTodayDateString()
             val snapshot = db.collection("waterLogs")
                 .whereEqualTo("userId", userId)
                 .get()
                 .awaitTask()
             for (doc in snapshot.documents) {
-                db.collection("waterLogs").document(doc.id).delete().awaitTask()
+                val timestamp = doc.getString("timestamp") ?: ""
+                if (timestamp.startsWith(todayStr)) {
+                    db.collection("waterLogs").document(doc.id).delete().awaitTask()
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
